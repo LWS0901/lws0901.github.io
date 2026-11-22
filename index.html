@@ -545,7 +545,7 @@ const DATA = {
   ],
   awards: [
     { period: { en: "May 2026", ko: "2026.05" }, title: { en: "Top Award — Young Brain Festival at the Association of Humanities Contents Spring Conference", ko: "최우수상 — 인문콘텐츠학회 춘계학술대회 영브레인 페스티벌" },
-      sub: { en: "Semantic archive of the Jongmyo–Sewoon area (poster)", ko: "종묘-세운 일대 시맨틱 아카이브 연구 (포스터)" } },
+      sub: { en: "The Death of the Dominant Narrative and the Birth of the Remembering Audience: Building a Semantic Archive for Memory Conflicts and Multi-layered Narrative Restoration in the Jongmyo–Sewoon District", ko: "지배적 서사의 죽음, 기억하는 수용자의 탄생: 종묘-세운지구의 기억 충돌과 다층적 서사 복원을 위한 시맨틱 아카이브 구축" } },
     { period: { en: "Jul 2025", ko: "2025.07" }, title: { en: "Bronze Prize — Student Paper Competition at the Korea Digital Contents Society Summer Conference", ko: "동상 — 한국디지털콘텐츠학회 하계종합학술대회 대학생 논문경진대회" },
       sub: { en: "CatBoost-based art auction estimate prediction", ko: "CatBoost 기반 미술품 경매 추정가 예측 모델" } },
     { period: { en: "Feb 2025", ko: "2025.02" }, title: { en: "Excellence Award — 3rd Market Economy Speech Contest", ko: "우수상 — 제3회 시장경제 스피치대회" }, sub: { en: "Center for Free Enterprise", ko: "자유기업원" } },
@@ -653,12 +653,12 @@ const DATA = {
       venue: { en: "International Conference on Convergence Contents (Dec 17 – 19, 2026)", ko: "International Conference on Convergence Contents (2026.12.17 – 12.19)" }, project: "twin" },
     { type: "presentation", year: "2026",
       authors: { en: "Lee, W.", ko: "이원석" },
-      date: "2026-06-24", conf: "KCC 2026",
+      date: "2026-06-24", conf: "KCC 2026", status: "Proceedings", link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12929197", linkLabel: "DBpia ↗",
       title: { en: "A Knowledge-Graph-based Query Interaction Structure for Exploring the Multi-layered Context of Donated Artifacts: The Case of Slot-based Cypher Queries", ko: "기증 유물 다층 맥락 탐색을 위한 지식그래프 기반 질의 인터랙션 구조 연구: 슬롯 기반 Cypher 질의 사례 중심으로" },
       venue: { en: "Korea Computer Congress (Jun 24 – 26, 2026)", ko: "한국컴퓨터종합학술대회 (2026.06.24 – 06.26)" }, project: "story" },
     { type: "presentation", year: "2026",
       authors: { en: "Lee, W.", ko: "이원석" },
-      date: "2026-07-27", conf: "DH 2026", role: { en: "2nd author", ko: "제2저자" },
+      date: "2026-07-27", conf: "DH 2026", status: "Book of Abstracts", doi: "10.5281/zenodo.21495909", role: { en: "2nd author", ko: "제2저자" },
       title: "A Two-Layer Ontology for Representing Motif Meaning and Cultural Context in Korean Traditional Artifacts",
       venue: { en: "Annual Conference of the Alliance of Digital Humanities Organizations (Jul 27 – 31, 2026)", ko: "Annual Conference of the Alliance of Digital Humanities Organizations (2026.07.27 – 07.31)" }, project: "story" },
     { type: "presentation", year: "2026", authors: { en: "Lee, W.", ko: "이원석" },
@@ -668,7 +668,7 @@ const DATA = {
     { type: "presentation", year: "2026", status: { en: "Top Award, poster", ko: "최우수상, 포스터" },
       authors: { en: "Lee, W.", ko: "이원석" },
       date: "2026-05-02", conf: { en: "AHC 2026", ko: "인문콘텐츠학회 2026" },
-      title: { en: "A Semantic Archive of the Jongmyo–Sewoon Area", ko: "종묘-세운 일대 시맨틱 아카이브 연구" },
+      title: { en: "The Death of the Dominant Narrative and the Birth of the Remembering Audience: Building a Semantic Archive for Memory Conflicts and Multi-layered Narrative Restoration in the Jongmyo–Sewoon District", ko: "지배적 서사의 죽음, 기억하는 수용자의 탄생: 종묘-세운지구의 기억 충돌과 다층적 서사 복원을 위한 시맨틱 아카이브 구축" },
       venue: { en: "Association of Humanities Contents Spring Conference (May 2, 2026)", ko: "인문콘텐츠학회 춘계학술대회 (2026.05.02)" }, project: "jongmyo" },
     { type: "presentation", year: "2025", status: { en: "Bronze Prize", ko: "동상" },
       authors: { en: "Lee, W.", ko: "이원석" },
@@ -868,7 +868,7 @@ function renderPubs(){
       <div class="acts">
         ${p.file?`<a class="pill" href="${esc(p.file)}" download>PDF ↓</a>`:""}
         ${p.doi?`<a class="pill line-dark" href="${esc(doiUrl(p.doi))}" target="_blank" rel="noopener">DOI ↗</a>`:""}
-        ${p.link?`<a class="pill line-dark" href="${esc(p.link)}" target="_blank" rel="noopener">${U("link")}</a>`:""}
+        ${p.link?`<a class="pill line-dark" href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.linkLabel||U("link"))}</a>`:""}
         ${p.project?`<button class="pill soft" data-proj="${p.project}">${U("project")}</button>`:""}
       </div></li>`; }).join("") : `<div class="empty-st">${U("empty")}</div>`;
 }
