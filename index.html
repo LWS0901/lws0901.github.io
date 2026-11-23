@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wonseok Lee, Digital Heritage Portfolio</title>
+<title>Wonseok Lee | 溫故知新</title>
 <meta name="description" content="Wonseok Lee — digital heritage researcher: knowledge graphs, semantic archives, spatial analysis and computer vision for cultural heritage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1072,7 +1072,7 @@ document.addEventListener("keydown",e=>{
 function setLang(l){
   LANG=l; try{ localStorage.setItem("lang",l); }catch(e){}
   document.documentElement.lang = l==="ko"?"ko":"en";
-  document.title = l==="ko" ? "이원석, 디지털 헤리티지 포트폴리오" : "Wonseok Lee, Digital Heritage Portfolio";
+  document.title = "Wonseok Lee | 溫故知新";
   document.querySelectorAll("#lang button").forEach(b=>b.classList.toggle("on",b.dataset.l===l));
   document.querySelectorAll("[data-i18n]").forEach(el=>el.textContent=U(el.dataset.i18n));
   document.querySelectorAll("[data-i18n-html]").forEach(el=>el.innerHTML=U(el.dataset.i18nHtml));
