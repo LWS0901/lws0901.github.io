@@ -328,6 +328,7 @@
   .seg.lang button{height:32px;padding:0 12px}
   @media (max-width:860px){ .seg.lang button{padding:0 9px} }
 </style>
+<script data-goatcounter="https://wonseoklee.goatcounter.com/count" data-goatcounter-settings='{"no_onload": true}' async src="//gc.zgo.at/count.js" onload="(window._gcq||[]).splice(0).forEach(function(f){f()})"></script>
 </head>
 <body>
 <div class="app">
@@ -743,6 +744,10 @@ const countType = t => t==="papers" ? DATA.publications.filter(isPaper).length :
 const VIEWS = [["home","Index"],["work","Work"],["graph","Map"],["writing","Publications"],["about","About"]];
 $("#tabs").innerHTML = VIEWS.map(([k,l],i)=>`<li><button data-go="${k}"><small>${pad(i+1)}</small>${l}</button></li>`).join("");
 let current = null;
+function gcTrack(v){
+  const send=()=>{ try{ window.goatcounter.count({ path: "/"+(v==="home"?"":v), title: v }); }catch(e){} };
+  if(window.goatcounter && window.goatcounter.count) send(); else (window._gcq=window._gcq||[]).push(send);
+}
 function go(v, opts={}){
   if(!VIEWS.some(x=>x[0]===v)) v="home";
   if(v===current && !opts.force) return;
@@ -750,6 +755,7 @@ function go(v, opts={}){
   document.querySelectorAll(".view").forEach(el => el.classList.toggle("on", el.id==="v-"+v));
   document.querySelectorAll("#tabs button").forEach(b => b.classList.toggle("on", b.dataset.go===v));
   if(location.hash!=="#"+v) history.replaceState(null,"","#"+v);
+  gcTrack(v);
   if(v==="graph") setTimeout(()=>G.resize(), 60);
   if(v==="home") countUp();
 }
